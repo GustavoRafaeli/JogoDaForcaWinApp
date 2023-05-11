@@ -30,7 +30,7 @@ namespace JogoDaForcaWinApp
             palavraCriptografada = "";
             for (int i = 0; i < palavraRandom.Length; i++)
             {
-                palavraCriptografada += "_ ";
+                palavraCriptografada += "_";
             }
         }
     }

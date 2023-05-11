@@ -9,6 +9,7 @@ namespace JogoDaForcaWinApp
             InitializeComponent();
             forca = new Forca();
             ConfigurarBotoes();
+            lblPalavra.Text = forca.palavraCriptografada;
         }
 
         private void ConfigurarBotoes()
@@ -45,13 +46,8 @@ namespace JogoDaForcaWinApp
 
         private void Comecar(object? sender, EventArgs e)
         {
-            // Gerar uma nova palavra aleatória
             forca.GerarPalavra();
-
-            // Limpar a lista de letras escolhidas
             forca.LetrasEscolhidas.Clear();
-
-            // Redefinir a palavra criptografada e o texto da label correspondente
             forca.ResetPalavraCriptografada();
             lblPalavra.Text = forca.palavraCriptografada;
 
@@ -67,8 +63,6 @@ namespace JogoDaForcaWinApp
                     }
                 }
             }
-
-            // Esconder as imagens de erro
             foreach (Control control in this.Controls)
             {
                 if (control is PictureBox)
@@ -78,24 +72,11 @@ namespace JogoDaForcaWinApp
                 }
             }
             picForca.Visible = true;
-
-
-            // Redefinir o número de erros
             numErros = 0;
-
-            // Definir cor branca para o botão Começar
             btnComecar.BackColor = Color.White;
-
-
-            //lblPalavra.Text = "";
-            //forca.LetrasEscolhidas.Clear();
-
-
         }
         private void AtribuirLetra(object? sender, EventArgs e)
         {
-            lblPalavra.Text = forca.palavraCriptografada;
-
             Button botaoClicado = (Button)sender;
             char letra = botaoClicado.Text.ToUpper()[0];
 
